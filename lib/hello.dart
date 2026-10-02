@@ -82,13 +82,17 @@ class _HelloState extends State<Hello> {
             width: 300,
             padding: const EdgeInsets.all(16.0),
             child: TextField(
+              key: Key('player1_text'),
               controller: p1,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 hintText: 'Choose Rock , Paper , Scissor',
               )),
               ),
+              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20)))
+              ,
               ElevatedButton(
+                key: Key('p1_btn'),
                 onPressed: (){
                   p1_ans = p1.text;
                 }, 
@@ -103,6 +107,7 @@ class _HelloState extends State<Hello> {
             width: 300,
             padding: const EdgeInsets.all(16.0),
             child: TextField(
+              key: Key('player2_text'),
               controller: p2,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -110,6 +115,7 @@ class _HelloState extends State<Hello> {
               )),
               ),
               ElevatedButton(
+                key: Key('p2_btn'),
                 onPressed: (){
                   setState(() {
                     p2_ans = p2.text;
@@ -118,10 +124,11 @@ class _HelloState extends State<Hello> {
                 child: const Text('Submit', style: const TextStyle(fontSize: 20))),
             ],
           ),
-          
+
           const SizedBox(height: 20),
 
           ElevatedButton(
+            key: Key('finish_btn'),
             onPressed: (){
               setState(() {
                 result = showResult(p1_ans, p2_ans);
