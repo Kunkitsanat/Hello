@@ -24,10 +24,6 @@ class _HelloState extends State<Hello> {
     super.dispose();
   }
 
-  // String keepAns(String player_ans){
-  //   return player_ans;
-  // }
-
 
   String showResult(String p1 , String p2){
     String ans;
@@ -96,7 +92,7 @@ class _HelloState extends State<Hello> {
                 onPressed: (){
                   p1_ans = p1.text;
                 }, 
-                child: const Text('Submit', style: const TextStyle(fontSize: 20))),
+                child: const Text('Submit', style: const TextStyle(fontSize: 20))), 
             ],
           ),
           
@@ -120,10 +116,11 @@ class _HelloState extends State<Hello> {
                   });
                 }, 
                 child: const Text('Submit', style: const TextStyle(fontSize: 20))),
-              
             ],
           ),
           
+          const SizedBox(height: 20),
+
           ElevatedButton(
             onPressed: (){
               setState(() {
@@ -132,6 +129,7 @@ class _HelloState extends State<Hello> {
             },
             child: const Text('Finish', style: const TextStyle(fontSize: 20))),
 
+          const SizedBox(height: 20),
           Text(result , style: const TextStyle(fontSize: 20))  
         ],
       ),
