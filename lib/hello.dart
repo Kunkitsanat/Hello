@@ -8,14 +8,17 @@ class Hello extends StatefulWidget {
 }
 
 class _HelloState extends State<Hello> {
-  final TextEditingController name = TextEditingController();
+  final TextEditingController p1 = TextEditingController();
+  final TextEditingController p2 = TextEditingController();
+
   
-  // ตัวแปรสำหรับเก็บข้อความที่จะนำไปแสดงบนหน้าจอ
-  String displayName = '';
+  // ตัวแปรสำหรับเก็บข้อความที่จะนำไปแสดงบนหน้าจอs
+  String result = 'Test';
 
   @override
   void dispose() {
-    name.dispose();
+    p1.dispose();
+    p2.dispose();
     super.dispose();
   }
 
@@ -32,26 +35,44 @@ class _HelloState extends State<Hello> {
             width: 300,
             padding: const EdgeInsets.all(16.0),
             child: TextField(
-              controller: name,
+              controller: p1,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                hintText: 'Enter your name',
+                hintText: 'Choose Rock , Paper , Scissor',
               )),
               ),
               ElevatedButton(
                 onPressed: (){
-                  setState(() {
-                    displayName = name.text;
-                  });
+
                 }, 
-                child: const Text('Hello', style: const TextStyle(fontSize: 20))),
+                child: const Text('Submit', style: const TextStyle(fontSize: 20))),
               
             ],
           ),
           
-          if(displayName.isNotEmpty)(
-             Text('Hello, $displayName !' , style: const TextStyle(fontSize: 20),)
-          )      
+          Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+            width: 300,
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              controller: p2,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Choose Rock , Paper , Scissor',
+              )),
+              ),
+              ElevatedButton(
+                onPressed: (){
+                  
+                }, 
+                child: const Text('Submit', style: const TextStyle(fontSize: 20))),
+              
+            ],
+          ),
+          
+          Text(result,style: const TextStyle(fontSize: 20))     
         ],
       ),
     );
