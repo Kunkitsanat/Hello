@@ -89,8 +89,10 @@ class _HelloState extends State<Hello> {
                 hintText: 'Choose Rock , Paper , Scissor',
               )),
               ),
-              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20)))
-              ,
+              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20))),
+              ElevatedButton(onPressed: (){}, child: const Text('Scissor', style: const TextStyle(fontSize: 20))),
+              ElevatedButton(onPressed: (){}, child: const Text('Paper', style: const TextStyle(fontSize: 20))),
+      
               ElevatedButton(
                 key: Key('p1_btn'),
                 onPressed: (){
@@ -114,6 +116,10 @@ class _HelloState extends State<Hello> {
                 hintText: 'Choose Rock , Paper , Scissor',
               )),
               ),
+              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20))),
+              ElevatedButton(onPressed: (){}, child: const Text('Scissor', style: const TextStyle(fontSize: 20))),
+              ElevatedButton(onPressed: (){}, child: const Text('Paper', style: const TextStyle(fontSize: 20))),
+              
               ElevatedButton(
                 key: Key('p2_btn'),
                 onPressed: (){
