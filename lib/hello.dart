@@ -15,7 +15,7 @@ class _HelloState extends State<Hello> {
   // ตัวแปรสำหรับเก็บข้อความที่จะนำไปแสดงบนหน้าจอs
   String p1_ans = '';
   String p2_ans = '';
-  String result = 'Test';
+  String result = '';
 
   @override
   void dispose() {
@@ -58,10 +58,10 @@ class _HelloState extends State<Hello> {
     };
 
     if(p1_score > p2_score)(
-      ans = 'Player 1 Win! , Player 2 Lose!'
+      ans = 'Player 1 Win!'
     );
     else if(p1_score < p2_score)(
-      ans = 'Player 2 Win! , Player 1 Lose!'
+      ans = 'Player 2 Win!'
     );
     else(
       ans = 'Tie!'
@@ -75,63 +75,89 @@ class _HelloState extends State<Hello> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+        Text('Player 1: Choose' , style: TextStyle(fontSize: 20),),
+        const SizedBox(height: 20,),
          Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-            width: 300,
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              key: Key('player1_text'),
-              controller: p1,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Choose Rock , Paper , Scissor',
-              )),
-              ),
-              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20))),
-              ElevatedButton(onPressed: (){}, child: const Text('Scissor', style: const TextStyle(fontSize: 20))),
-              ElevatedButton(onPressed: (){}, child: const Text('Paper', style: const TextStyle(fontSize: 20))),
-      
               ElevatedButton(
-                key: Key('p1_btn'),
+                key: Key('p1_rock'),
                 onPressed: (){
-                  p1_ans = p1.text;
+                  p1_ans = 'rock';
                 }, 
-                child: const Text('Submit', style: const TextStyle(fontSize: 20))), 
+                child: const Text('Rock', style: const TextStyle(fontSize: 18))),
+
+              ElevatedButton(
+                key: Key('p1_sciss'),
+                onPressed: (){
+                  p1_ans = 'scissor';
+                }, 
+                child: const Text('Scissor', style: const TextStyle(fontSize: 18))),
+
+              ElevatedButton(
+                key: Key('p1_paper'),
+                onPressed: (){
+                  p1_ans = 'paper';
+                }, 
+                child: const Text('Paper', style: const TextStyle(fontSize: 18))),
+      
+ 
             ],
           ),
+          
+          const SizedBox(height: 20,),
+
+          ElevatedButton(
+            key: Key('p1_btn'),
+            onPressed: (){
+              p1_ans = p1_ans;
+            }, 
+            child: const Text('Submit', style: const TextStyle(fontSize: 18))),   
+
+          const SizedBox(height: 50,),
+
+          Text('Player 2: Choose' , style: TextStyle(fontSize: 20),),
+          const SizedBox(height: 20,),
           
           Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-            width: 300,
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              key: Key('player2_text'),
-              controller: p2,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Choose Rock , Paper , Scissor',
-              )),
-              ),
-              ElevatedButton(onPressed: (){}, child: const Text('Rock', style: const TextStyle(fontSize: 20))),
-              ElevatedButton(onPressed: (){}, child: const Text('Scissor', style: const TextStyle(fontSize: 20))),
-              ElevatedButton(onPressed: (){}, child: const Text('Paper', style: const TextStyle(fontSize: 20))),
-              
               ElevatedButton(
-                key: Key('p2_btn'),
+                key: Key('p2_rock'),
                 onPressed: (){
-                  setState(() {
-                    p2_ans = p2.text;
-                  });
+                  p2_ans = 'rock';
                 }, 
-                child: const Text('Submit', style: const TextStyle(fontSize: 20))),
+                child: const Text('Rock', style: const TextStyle(fontSize: 18))),
+
+              ElevatedButton(
+                key: Key('p2_sciss'),
+                onPressed: (){
+                  p2_ans = 'scissor';
+                }, 
+                child: const Text('Scissor', style: const TextStyle(fontSize: 18))),
+
+              ElevatedButton(
+                key: Key('p2_paper'),
+                onPressed: (){
+                  p2_ans = 'paper';
+                }, 
+                child: const Text('Paper', style: const TextStyle(fontSize: 18))),
+              
             ],
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 20,),
+          
+          ElevatedButton(
+            key: Key('p2_btn'),
+            onPressed: (){
+              setState(() {
+                p2_ans = p2_ans;
+              });
+            }, 
+            child: const Text('Submit', style: const TextStyle(fontSize: 18))),
+
+          const SizedBox(height: 50),
 
           ElevatedButton(
             key: Key('finish_btn'),
@@ -143,7 +169,7 @@ class _HelloState extends State<Hello> {
             child: const Text('Finish', style: const TextStyle(fontSize: 20))),
 
           const SizedBox(height: 20),
-          Text(result , style: const TextStyle(fontSize: 20))  
+          Text(result , style: const TextStyle(fontSize: 32))  
         ],
       ),
     );
