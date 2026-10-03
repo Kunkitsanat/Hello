@@ -8,22 +8,11 @@ class Hello extends StatefulWidget {
 }
 
 class _HelloState extends State<Hello> {
-  final TextEditingController p1 = TextEditingController();
-  final TextEditingController p2 = TextEditingController();
-
   
   // ตัวแปรสำหรับเก็บข้อความที่จะนำไปแสดงบนหน้าจอs
   String p1_ans = '';
   String p2_ans = '';
   String result = '';
-
-  @override
-  void dispose() {
-    p1.dispose();
-    p2.dispose();
-    super.dispose();
-  }
-
 
   String showResult(String p1 , String p2){
     String ans;
@@ -81,25 +70,25 @@ class _HelloState extends State<Hello> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
               ElevatedButton(
-                key: Key('p1_rock'),
+                key: Key('p1_rock_btn'),
                 onPressed: (){
                   p1_ans = 'rock';
                 }, 
-                child: const Text('Rock', style: const TextStyle(fontSize: 18))),
+                child: const Text('Rock', key: Key('p1_rock'),style: TextStyle(fontSize: 18),)),
 
               ElevatedButton(
-                key: Key('p1_sciss'),
+                key: Key('p1_sciss_btn'),
                 onPressed: (){
                   p1_ans = 'scissor';
                 }, 
-                child: const Text('Scissor', style: const TextStyle(fontSize: 18))),
+                child: const Text('Scissor',key: Key('p1_sciss'),style:  TextStyle(fontSize: 18),)),
 
               ElevatedButton(
-                key: Key('p1_paper'),
+                key: Key('p1_paper_btn'),
                 onPressed: (){
                   p1_ans = 'paper';
                 }, 
-                child: const Text('Paper', style: const TextStyle(fontSize: 18))),
+                child: const Text('Paper', key: Key('p1_paper'),style:  TextStyle(fontSize: 18),)),
       
  
             ],
@@ -112,7 +101,7 @@ class _HelloState extends State<Hello> {
             onPressed: (){
               p1_ans = p1_ans;
             }, 
-            child: const Text('Submit', style: const TextStyle(fontSize: 18))),   
+            child: const Text('Submit', key: Key('p1_submit'),style: TextStyle(fontSize: 18),)),   
 
           const SizedBox(height: 50,),
 
@@ -123,31 +112,31 @@ class _HelloState extends State<Hello> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
               ElevatedButton(
-                key: Key('p2_rock'),
+                key: Key('p2_rock_btn'),
                 onPressed: (){
                   p2_ans = 'rock';
                 }, 
-                child: const Text('Rock', style: const TextStyle(fontSize: 18))),
+                child: const Text('Rock',key: Key('p2_rock'),style: TextStyle(fontSize: 18),)),
 
               ElevatedButton(
-                key: Key('p2_sciss'),
+                key: Key('p2_sciss_btn'),
                 onPressed: (){
                   p2_ans = 'scissor';
                 }, 
-                child: const Text('Scissor', style: const TextStyle(fontSize: 18))),
+                child: const Text('Scissor',key: Key('p2_sciss'),style: TextStyle(fontSize: 18),)),
 
               ElevatedButton(
-                key: Key('p2_paper'),
+                key: Key('p2_paper_btn'),
                 onPressed: (){
                   p2_ans = 'paper';
                 }, 
-                child: const Text('Paper', style: const TextStyle(fontSize: 18))),
+                child: const Text('Paper', key: Key('p2_paper'),style: TextStyle(fontSize: 18),)),
               
             ],
           ),
 
           const SizedBox(height: 20,),
-          
+
           ElevatedButton(
             key: Key('p2_btn'),
             onPressed: (){
@@ -155,7 +144,7 @@ class _HelloState extends State<Hello> {
                 p2_ans = p2_ans;
               });
             }, 
-            child: const Text('Submit', style: const TextStyle(fontSize: 18))),
+            child: const Text('Submit', key: Key('p2_submit'),style: TextStyle(fontSize: 18),)),
 
           const SizedBox(height: 50),
 
@@ -166,7 +155,7 @@ class _HelloState extends State<Hello> {
                 result = showResult(p1_ans, p2_ans);
               });
             },
-            child: const Text('Finish', style: const TextStyle(fontSize: 20))),
+            child: const Text('Finish', style: const TextStyle(fontSize: 20),)),
 
           const SizedBox(height: 20),
           Text(result , style: const TextStyle(fontSize: 32))  
